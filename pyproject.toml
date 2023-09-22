@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "dummyapp"
+version = "0.1.0"
+authors = ["John Smith <john@example.com>"]
+description = ""
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.98.0"
+
+[tool.black]
+line-length = 79
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

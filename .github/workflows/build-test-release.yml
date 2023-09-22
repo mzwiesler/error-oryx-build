@@ -1,0 +1,23 @@
+name: build-test-release
+
+on:
+  workflow_dispatch:
+
+env:
+  LANG: en_US.UTF-8
+  PYTHON_VERSION: 3.10.8
+
+jobs:
+  build-oryx:
+    runs-on: azure-runners
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: |
+          docker run \
+            -e PYTHON_VERSION \
+            -v "$PWD:/repo" \
+            mcr.microsoft.com/oryx/build \
+            oryx build /repo
